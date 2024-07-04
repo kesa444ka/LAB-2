@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->view->setEditTriggers(QAbstractItemView::DoubleClicked);
     ui->view->setModel(model);
 
-    connect(ui->menu, &QComboBox::currentIndexChanged, this, &MainWindow::changeTable);
+    connect(ui->menu, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::changeTable);
     connect(ui->saveButton, &QPushButton::clicked, this, &MainWindow::onSaveButtonClicked);
     connect(ui->addRow, &QPushButton::clicked, this, &MainWindow::onAddRowClicked);
     connect(ui->deleteRow, &QPushButton::clicked, this, &MainWindow::onDeleteRowClicked);
